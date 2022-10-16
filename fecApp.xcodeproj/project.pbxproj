@@ -7,15 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21EB984AA18B52A6282F04D8 /* Pods_fecApp_fecAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D34DCCB061E43F77F695EC85 /* Pods_fecApp_fecAppUITests.framework */; };
+		30E9970615B2355A05CAE2C1 /* Pods_fecApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0251D8BE32F56D70C9BB562F /* Pods_fecApp.framework */; };
+		7377342A428A2AB4822C0E6F /* Pods_fecAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86F91634C631E8D0BCAEFED8 /* Pods_fecAppTests.framework */; };
 		F403D04F28FB7DCF00EE1C71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F403D04E28FB7DCF00EE1C71 /* AppDelegate.swift */; };
 		F403D05128FB7DCF00EE1C71 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F403D05028FB7DCF00EE1C71 /* SceneDelegate.swift */; };
 		F403D05328FB7DCF00EE1C71 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F403D05228FB7DCF00EE1C71 /* ViewController.swift */; };
-		F403D05628FB7DCF00EE1C71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F403D05428FB7DCF00EE1C71 /* Main.storyboard */; };
 		F403D05828FB7DD100EE1C71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F403D05728FB7DD100EE1C71 /* Assets.xcassets */; };
 		F403D05B28FB7DD100EE1C71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F403D05928FB7DD100EE1C71 /* LaunchScreen.storyboard */; };
 		F403D06628FB7DD100EE1C71 /* fecAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F403D06528FB7DD100EE1C71 /* fecAppTests.swift */; };
 		F403D07028FB7DD100EE1C71 /* fecAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F403D06F28FB7DD100EE1C71 /* fecAppUITests.swift */; };
 		F403D07228FB7DD100EE1C71 /* fecAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F403D07128FB7DD100EE1C71 /* fecAppUITestsLaunchTests.swift */; };
+		F403D08528FB96B700EE1C71 /* FECApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F403D08428FB96B700EE1C71 /* FECApi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,11 +39,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0251D8BE32F56D70C9BB562F /* Pods_fecApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fecApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		09AE85F1C604CBACD931A2C5 /* Pods-fecApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fecApp.debug.xcconfig"; path = "Target Support Files/Pods-fecApp/Pods-fecApp.debug.xcconfig"; sourceTree = "<group>"; };
+		0CC5B7D5C810F34A6E3C5C99 /* Pods-fecApp-fecAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fecApp-fecAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-fecApp-fecAppUITests/Pods-fecApp-fecAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		86F91634C631E8D0BCAEFED8 /* Pods_fecAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fecAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9ECF006FD3C9508028D6F495 /* Pods-fecAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fecAppTests.debug.xcconfig"; path = "Target Support Files/Pods-fecAppTests/Pods-fecAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AEA7CF24C3C5BFCCC4463C66 /* Pods-fecApp-fecAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fecApp-fecAppUITests.release.xcconfig"; path = "Target Support Files/Pods-fecApp-fecAppUITests/Pods-fecApp-fecAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D34DCCB061E43F77F695EC85 /* Pods_fecApp_fecAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fecApp_fecAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD0F4DC03F33C9AB365FE9DF /* Pods-fecApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fecApp.release.xcconfig"; path = "Target Support Files/Pods-fecApp/Pods-fecApp.release.xcconfig"; sourceTree = "<group>"; };
+		EDCB9BFE55E1FE04718D9CEA /* Pods-fecAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fecAppTests.release.xcconfig"; path = "Target Support Files/Pods-fecAppTests/Pods-fecAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		F403D04B28FB7DCF00EE1C71 /* fecApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fecApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F403D04E28FB7DCF00EE1C71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F403D05028FB7DCF00EE1C71 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F403D05228FB7DCF00EE1C71 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F403D05528FB7DCF00EE1C71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F403D05728FB7DD100EE1C71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F403D05A28FB7DD100EE1C71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F403D05C28FB7DD100EE1C71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +60,7 @@
 		F403D06B28FB7DD100EE1C71 /* fecAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fecAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F403D06F28FB7DD100EE1C71 /* fecAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fecAppUITests.swift; sourceTree = "<group>"; };
 		F403D07128FB7DD100EE1C71 /* fecAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fecAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F403D08428FB96B700EE1C71 /* FECApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FECApi.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30E9970615B2355A05CAE2C1 /* Pods_fecApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7377342A428A2AB4822C0E6F /* Pods_fecAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +84,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21EB984AA18B52A6282F04D8 /* Pods_fecApp_fecAppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A94531ACB79F008315EAFDD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				09AE85F1C604CBACD931A2C5 /* Pods-fecApp.debug.xcconfig */,
+				DD0F4DC03F33C9AB365FE9DF /* Pods-fecApp.release.xcconfig */,
+				0CC5B7D5C810F34A6E3C5C99 /* Pods-fecApp-fecAppUITests.debug.xcconfig */,
+				AEA7CF24C3C5BFCCC4463C66 /* Pods-fecApp-fecAppUITests.release.xcconfig */,
+				9ECF006FD3C9508028D6F495 /* Pods-fecAppTests.debug.xcconfig */,
+				EDCB9BFE55E1FE04718D9CEA /* Pods-fecAppTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		8304EB47FCEA0AE32658430E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0251D8BE32F56D70C9BB562F /* Pods_fecApp.framework */,
+				D34DCCB061E43F77F695EC85 /* Pods_fecApp_fecAppUITests.framework */,
+				86F91634C631E8D0BCAEFED8 /* Pods_fecAppTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F403D04228FB7DCF00EE1C71 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +121,8 @@
 				F403D06428FB7DD100EE1C71 /* fecAppTests */,
 				F403D06E28FB7DD100EE1C71 /* fecAppUITests */,
 				F403D04C28FB7DCF00EE1C71 /* Products */,
+				3A94531ACB79F008315EAFDD /* Pods */,
+				8304EB47FCEA0AE32658430E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,10 +139,12 @@
 		F403D04D28FB7DCF00EE1C71 /* fecApp */ = {
 			isa = PBXGroup;
 			children = (
-				F403D04E28FB7DCF00EE1C71 /* AppDelegate.swift */,
-				F403D05028FB7DCF00EE1C71 /* SceneDelegate.swift */,
-				F403D05228FB7DCF00EE1C71 /* ViewController.swift */,
-				F403D05428FB7DCF00EE1C71 /* Main.storyboard */,
+				F403D08028FB7E2F00EE1C71 /* Views */,
+				F403D07F28FB7E2700EE1C71 /* Controllers */,
+				F403D07E28FB7E2100EE1C71 /* Core */,
+				F403D08328FB7E6500EE1C71 /* Models */,
+				F403D08228FB7E5B00EE1C71 /* Services */,
+				F403D08128FB7E5200EE1C71 /* Extensions */,
 				F403D05728FB7DD100EE1C71 /* Assets.xcassets */,
 				F403D05928FB7DD100EE1C71 /* LaunchScreen.storyboard */,
 				F403D05C28FB7DD100EE1C71 /* Info.plist */,
@@ -127,6 +169,52 @@
 			path = fecAppUITests;
 			sourceTree = "<group>";
 		};
+		F403D07E28FB7E2100EE1C71 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				F403D04E28FB7DCF00EE1C71 /* AppDelegate.swift */,
+				F403D05028FB7DCF00EE1C71 /* SceneDelegate.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		F403D07F28FB7E2700EE1C71 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F403D05228FB7DCF00EE1C71 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F403D08028FB7E2F00EE1C71 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F403D08128FB7E5200EE1C71 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F403D08228FB7E5B00EE1C71 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F403D08428FB96B700EE1C71 /* FECApi.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		F403D08328FB7E6500EE1C71 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -134,9 +222,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F403D07528FB7DD100EE1C71 /* Build configuration list for PBXNativeTarget "fecApp" */;
 			buildPhases = (
+				B397AB8CCCB1070003A8C4C7 /* [CP] Check Pods Manifest.lock */,
 				F403D04728FB7DCF00EE1C71 /* Sources */,
 				F403D04828FB7DCF00EE1C71 /* Frameworks */,
 				F403D04928FB7DCF00EE1C71 /* Resources */,
+				F2F9119A6E617728A1815091 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -151,6 +241,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F403D07828FB7DD100EE1C71 /* Build configuration list for PBXNativeTarget "fecAppTests" */;
 			buildPhases = (
+				3EEE986B42E0DE11F77BA817 /* [CP] Check Pods Manifest.lock */,
 				F403D05D28FB7DD100EE1C71 /* Sources */,
 				F403D05E28FB7DD100EE1C71 /* Frameworks */,
 				F403D05F28FB7DD100EE1C71 /* Resources */,
@@ -169,9 +260,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F403D07B28FB7DD100EE1C71 /* Build configuration list for PBXNativeTarget "fecAppUITests" */;
 			buildPhases = (
+				ABAED4AF9AFA96ED7DAFFFCC /* [CP] Check Pods Manifest.lock */,
 				F403D06728FB7DD100EE1C71 /* Sources */,
 				F403D06828FB7DD100EE1C71 /* Frameworks */,
 				F403D06928FB7DD100EE1C71 /* Resources */,
+				AB58126C478FDA33574E610A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -233,7 +326,6 @@
 			files = (
 				F403D05B28FB7DD100EE1C71 /* LaunchScreen.storyboard in Resources */,
 				F403D05828FB7DD100EE1C71 /* Assets.xcassets in Resources */,
-				F403D05628FB7DCF00EE1C71 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +345,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3EEE986B42E0DE11F77BA817 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-fecAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AB58126C478FDA33574E610A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-fecApp-fecAppUITests/Pods-fecApp-fecAppUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-fecApp-fecAppUITests/Pods-fecApp-fecAppUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-fecApp-fecAppUITests/Pods-fecApp-fecAppUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ABAED4AF9AFA96ED7DAFFFCC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-fecApp-fecAppUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B397AB8CCCB1070003A8C4C7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-fecApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2F9119A6E617728A1815091 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-fecApp/Pods-fecApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-fecApp/Pods-fecApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-fecApp/Pods-fecApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F403D04728FB7DCF00EE1C71 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -261,6 +456,7 @@
 				F403D05328FB7DCF00EE1C71 /* ViewController.swift in Sources */,
 				F403D04F28FB7DCF00EE1C71 /* AppDelegate.swift in Sources */,
 				F403D05128FB7DCF00EE1C71 /* SceneDelegate.swift in Sources */,
+				F403D08528FB96B700EE1C71 /* FECApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +493,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F403D05428FB7DCF00EE1C71 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F403D05528FB7DCF00EE1C71 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F403D05928FB7DD100EE1C71 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -432,6 +620,7 @@
 		};
 		F403D07628FB7DD100EE1C71 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 09AE85F1C604CBACD931A2C5 /* Pods-fecApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -442,7 +631,7 @@
 				INFOPLIST_FILE = fecApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -460,6 +649,7 @@
 		};
 		F403D07728FB7DD100EE1C71 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD0F4DC03F33C9AB365FE9DF /* Pods-fecApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -470,7 +660,7 @@
 				INFOPLIST_FILE = fecApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -488,6 +678,7 @@
 		};
 		F403D07928FB7DD100EE1C71 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9ECF006FD3C9508028D6F495 /* Pods-fecAppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -508,6 +699,7 @@
 		};
 		F403D07A28FB7DD100EE1C71 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EDCB9BFE55E1FE04718D9CEA /* Pods-fecAppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -528,6 +720,7 @@
 		};
 		F403D07C28FB7DD100EE1C71 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0CC5B7D5C810F34A6E3C5C99 /* Pods-fecApp-fecAppUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -546,6 +739,7 @@
 		};
 		F403D07D28FB7DD100EE1C71 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AEA7CF24C3C5BFCCC4463C66 /* Pods-fecApp-fecAppUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

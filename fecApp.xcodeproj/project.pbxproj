@@ -12,13 +12,21 @@
 		7377342A428A2AB4822C0E6F /* Pods_fecAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86F91634C631E8D0BCAEFED8 /* Pods_fecAppTests.framework */; };
 		F403D04F28FB7DCF00EE1C71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F403D04E28FB7DCF00EE1C71 /* AppDelegate.swift */; };
 		F403D05128FB7DCF00EE1C71 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F403D05028FB7DCF00EE1C71 /* SceneDelegate.swift */; };
-		F403D05328FB7DCF00EE1C71 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F403D05228FB7DCF00EE1C71 /* ViewController.swift */; };
+		F403D05328FB7DCF00EE1C71 /* SearchCandidateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F403D05228FB7DCF00EE1C71 /* SearchCandidateViewController.swift */; };
 		F403D05828FB7DD100EE1C71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F403D05728FB7DD100EE1C71 /* Assets.xcassets */; };
 		F403D05B28FB7DD100EE1C71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F403D05928FB7DD100EE1C71 /* LaunchScreen.storyboard */; };
 		F403D06628FB7DD100EE1C71 /* fecAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F403D06528FB7DD100EE1C71 /* fecAppTests.swift */; };
 		F403D07028FB7DD100EE1C71 /* fecAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F403D06F28FB7DD100EE1C71 /* fecAppUITests.swift */; };
 		F403D07228FB7DD100EE1C71 /* fecAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F403D07128FB7DD100EE1C71 /* fecAppUITestsLaunchTests.swift */; };
 		F403D08528FB96B700EE1C71 /* FECApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F403D08428FB96B700EE1C71 /* FECApi.swift */; };
+		F403D08728FCB41200EE1C71 /* Candidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F403D08628FCB41200EE1C71 /* Candidate.swift */; };
+		F403D08928FCC8BC00EE1C71 /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = F403D08828FCC8BC00EE1C71 /* Core.swift */; };
+		F403D08E28FCCB1C00EE1C71 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F403D08D28FCCB1C00EE1C71 /* Utils.swift */; };
+		F403D09128FCCD4300EE1C71 /* CandidatesSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F403D09028FCCD4300EE1C71 /* CandidatesSearchViewModel.swift */; };
+		F403D09328FCD42600EE1C71 /* CandidateSearchCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F403D09228FCD42600EE1C71 /* CandidateSearchCellView.swift */; };
+		F403D09528FE4F5A00EE1C71 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F403D09428FE4F5A00EE1C71 /* Constants.swift */; };
+		F403D09928FE563A00EE1C71 /* CandidateDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F403D09828FE563A00EE1C71 /* CandidateDetailsViewController.swift */; };
+		F403D09B28FE566400EE1C71 /* CandidateDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F403D09A28FE566400EE1C71 /* CandidateDetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +59,7 @@
 		F403D04B28FB7DCF00EE1C71 /* fecApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fecApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F403D04E28FB7DCF00EE1C71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F403D05028FB7DCF00EE1C71 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F403D05228FB7DCF00EE1C71 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F403D05228FB7DCF00EE1C71 /* SearchCandidateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCandidateViewController.swift; sourceTree = "<group>"; };
 		F403D05728FB7DD100EE1C71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F403D05A28FB7DD100EE1C71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F403D05C28FB7DD100EE1C71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -61,6 +69,15 @@
 		F403D06F28FB7DD100EE1C71 /* fecAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fecAppUITests.swift; sourceTree = "<group>"; };
 		F403D07128FB7DD100EE1C71 /* fecAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fecAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F403D08428FB96B700EE1C71 /* FECApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FECApi.swift; sourceTree = "<group>"; };
+		F403D08628FCB41200EE1C71 /* Candidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Candidate.swift; sourceTree = "<group>"; };
+		F403D08828FCC8BC00EE1C71 /* Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
+		F403D08B28FCCAF300EE1C71 /* Env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Env.xcconfig; sourceTree = "<group>"; };
+		F403D08D28FCCB1C00EE1C71 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		F403D09028FCCD4300EE1C71 /* CandidatesSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidatesSearchViewModel.swift; sourceTree = "<group>"; };
+		F403D09228FCD42600EE1C71 /* CandidateSearchCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateSearchCellView.swift; sourceTree = "<group>"; };
+		F403D09428FE4F5A00EE1C71 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F403D09828FE563A00EE1C71 /* CandidateDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateDetailsViewController.swift; sourceTree = "<group>"; };
+		F403D09A28FE566400EE1C71 /* CandidateDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateDetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,15 +156,18 @@
 		F403D04D28FB7DCF00EE1C71 /* fecApp */ = {
 			isa = PBXGroup;
 			children = (
+				F403D08F28FCCD3600EE1C71 /* ViewModels */,
 				F403D08028FB7E2F00EE1C71 /* Views */,
 				F403D07F28FB7E2700EE1C71 /* Controllers */,
 				F403D07E28FB7E2100EE1C71 /* Core */,
 				F403D08328FB7E6500EE1C71 /* Models */,
 				F403D08228FB7E5B00EE1C71 /* Services */,
+				F403D08C28FCCB0D00EE1C71 /* Utils */,
 				F403D08128FB7E5200EE1C71 /* Extensions */,
 				F403D05728FB7DD100EE1C71 /* Assets.xcassets */,
 				F403D05928FB7DD100EE1C71 /* LaunchScreen.storyboard */,
 				F403D05C28FB7DD100EE1C71 /* Info.plist */,
+				F403D08B28FCCAF300EE1C71 /* Env.xcconfig */,
 			);
 			path = fecApp;
 			sourceTree = "<group>";
@@ -181,7 +201,8 @@
 		F403D07F28FB7E2700EE1C71 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F403D05228FB7DCF00EE1C71 /* ViewController.swift */,
+				F403D05228FB7DCF00EE1C71 /* SearchCandidateViewController.swift */,
+				F403D09828FE563A00EE1C71 /* CandidateDetailsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -189,6 +210,7 @@
 		F403D08028FB7E2F00EE1C71 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F403D09228FCD42600EE1C71 /* CandidateSearchCellView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -211,8 +233,28 @@
 		F403D08328FB7E6500EE1C71 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F403D08628FCB41200EE1C71 /* Candidate.swift */,
+				F403D08828FCC8BC00EE1C71 /* Core.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		F403D08C28FCCB0D00EE1C71 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F403D08D28FCCB1C00EE1C71 /* Utils.swift */,
+				F403D09428FE4F5A00EE1C71 /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		F403D08F28FCCD3600EE1C71 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F403D09028FCCD4300EE1C71 /* CandidatesSearchViewModel.swift */,
+				F403D09A28FE566400EE1C71 /* CandidateDetailsViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -453,9 +495,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F403D05328FB7DCF00EE1C71 /* ViewController.swift in Sources */,
+				F403D08928FCC8BC00EE1C71 /* Core.swift in Sources */,
+				F403D05328FB7DCF00EE1C71 /* SearchCandidateViewController.swift in Sources */,
 				F403D04F28FB7DCF00EE1C71 /* AppDelegate.swift in Sources */,
+				F403D09328FCD42600EE1C71 /* CandidateSearchCellView.swift in Sources */,
+				F403D08E28FCCB1C00EE1C71 /* Utils.swift in Sources */,
+				F403D09528FE4F5A00EE1C71 /* Constants.swift in Sources */,
+				F403D09128FCCD4300EE1C71 /* CandidatesSearchViewModel.swift in Sources */,
 				F403D05128FB7DCF00EE1C71 /* SceneDelegate.swift in Sources */,
+				F403D09928FE563A00EE1C71 /* CandidateDetailsViewController.swift in Sources */,
+				F403D09B28FE566400EE1C71 /* CandidateDetailsViewModel.swift in Sources */,
+				F403D08728FCB41200EE1C71 /* Candidate.swift in Sources */,
 				F403D08528FB96B700EE1C71 /* FECApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -506,6 +556,7 @@
 /* Begin XCBuildConfiguration section */
 		F403D07328FB7DD100EE1C71 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F403D08B28FCCAF300EE1C71 /* Env.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -566,6 +617,7 @@
 		};
 		F403D07428FB7DD100EE1C71 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F403D08B28FCCAF300EE1C71 /* Env.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;

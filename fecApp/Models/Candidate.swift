@@ -1,31 +1,12 @@
-// This file was generated from JSON Schema using quicktype, do not modify it directly.
-// To parse the JSON, add this file to your project and do:
 //
-//   let welcome = try? newJSONDecoder().decode(Welcome.self, from: jsonData)
+//  Candidate.swift
+//  fecApp
+//
+//  Created by Ibrahim Berat Kaya on 10/20/22.
+//
 
 import Foundation
 
-// MARK: - Welcome
-struct CandidatesSearchAPIResponse: Codable {
-    let apiVersion: String
-    let pagination: Pagination
-    let results: [Candidate]
-
-    enum CodingKeys: String, CodingKey {
-        case apiVersion = "api_version"
-        case pagination, results
-    }
-}
-
-// MARK: - Pagination
-struct Pagination: Codable {
-    let page, count, pages, perPage: Int
-
-    enum CodingKeys: String, CodingKey {
-        case page, count, pages
-        case perPage = "per_page"
-    }
-}
 
 // MARK: - Result
 struct Candidate: Codable {
@@ -82,19 +63,19 @@ struct Candidate: Codable {
 
 // MARK: - PrincipalCommittee
 struct PrincipalCommittee: Codable {
-    let cycles: [Int]
-    let firstFileDate, state, filingFrequency: String
+    let cycles: [Int]?
+    let firstFileDate, state, filingFrequency: String?
     let affiliatedCommitteeName: String?
-    let committeeType, designation, lastF1Date: String
-    let organizationTypeFull: JSONNull?
+    let committeeType, designation, lastF1Date: String?
+    let organizationTypeFull: String?
     let party: String?
-    let lastFileDate, committeeID, treasurerName: String
-    let candidateIDS: [String]
-    let firstF1Date: String
-    let organizationType: JSONNull?
-    let committeeTypeFull, name: String
+    let lastFileDate, committeeID, treasurerName: String?
+    let candidateIDS: [String]?
+    let firstF1Date: String?
+    let organizationType: String?
+    let committeeTypeFull, name: String?
     let partyFull: String?
-    let designationFull: String
+    let designationFull: String?
 
     enum CodingKeys: String, CodingKey {
         case cycles
@@ -120,29 +101,59 @@ struct PrincipalCommittee: Codable {
     }
 }
 
-// MARK: - Encode/decode helpers
 
-class JSONNull: Codable, Hashable {
+struct CandidateDetails: Codable {
+    let addressStreet2: String?
+    let electionYears: [Int]?
+    let candidateStatus: String?
+    let candidateInactive: Bool?
+    let officeFull, addressState, addressStreet1, office: String?
+    let lastFileDate: String?
+    let electionDistricts: [String]?
+    let incumbentChallengeFull: String?
+    let cycles: [Int]?
+    let federalFundsFlag: Bool?
+    let flags, partyFull: String?
+    let districtNumber: Int?
+    let name, firstFileDate, district: String?
+    let hasRaisedFunds: Bool?
+    let party, addressCity, lastF2Date, addressZip: String?
+    let candidateID: String?
+    let loadDate: String?
+    let activeThrough: Int?
+    let state: String?
+    let incumbentChallenge: String?
 
-    public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
-        return true
-    }
-
-    public var hashValue: Int {
-        return 0
-    }
-
-    public init() {}
-
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.singleValueContainer()
-        if !container.decodeNil() {
-            throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
-        }
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.singleValueContainer()
-        try container.encodeNil()
+    enum CodingKeys: String, CodingKey {
+        case addressStreet2 = "address_street_2"
+        case electionYears = "election_years"
+        case candidateStatus = "candidate_status"
+        case candidateInactive = "candidate_inactive"
+        case officeFull = "office_full"
+        case addressState = "address_state"
+        case addressStreet1 = "address_street_1"
+        case office
+        case lastFileDate = "last_file_date"
+        case electionDistricts = "election_districts"
+        case incumbentChallengeFull = "incumbent_challenge_full"
+        case cycles
+        case federalFundsFlag = "federal_funds_flag"
+        case flags
+        case partyFull = "party_full"
+        case districtNumber = "district_number"
+        case name
+        case firstFileDate = "first_file_date"
+        case district
+        case hasRaisedFunds = "has_raised_funds"
+        case party
+        case addressCity = "address_city"
+        case lastF2Date = "last_f2_date"
+        case addressZip = "address_zip"
+        case candidateID = "candidate_id"
+        case loadDate = "load_date"
+        case activeThrough = "active_through"
+        case state
+        case incumbentChallenge = "incumbent_challenge"
     }
 }
+

@@ -24,8 +24,10 @@ class SearchCandidateViewController: UIViewController, UISearchBarDelegate, UITa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let candidate = viewModel.candidates[indexPath.row]
-        let controller = CandidateDetailsViewController(candidate: candidate)
-        navigationController?.pushViewController(controller, animated: true)
+        if let id = candidate.candidateID {
+            let controller = CandidateDetailsViewController(candidateID: id)
+            navigationController?.pushViewController(controller, animated: true)
+        }
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -41,6 +43,7 @@ class SearchCandidateViewController: UIViewController, UISearchBarDelegate, UITa
         
         view.addSubview(searchbar)
         view.addSubview(tableView)
+        view.addSubview(loadingView)
         
         tableView.register(CandidateSearchCellView.self, forCellReuseIdentifier: "CandidateSearchCellView")
 
@@ -57,6 +60,19 @@ class SearchCandidateViewController: UIViewController, UISearchBarDelegate, UITa
             make.top.equalTo(searchbar.snp.bottom)
             make.bottom.leading.trailing.equalToSuperview()
         }
+        
+        loadingView.snp.makeConstraints { make in
+            make.top.equalTo(searchbar.snp.bottom).inset(-20)
+            make.centerX.equalToSuperview()
+        }
+        
+        Task {
+            await viewModel.searchForCandidate("Bernie")
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.loadingView.stopAnimating()
+            }
+        }
     }
     
     let tableView: UITableView = {
@@ -69,16 +85,30 @@ class SearchCandidateViewController: UIViewController, UISearchBarDelegate, UITa
     
     let searchbar: UISearchBar = {
         let bar = UISearchBar()
+        bar.placeholder = "Search for candidate..."
         bar.translatesAutoresizingMaskIntoConstraints = false
         return bar
     }()
     
+    let loadingView: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.hidesWhenStopped = true
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.startAnimating()
+        return indicator
+    }()
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+        loadingView.startAnimating()
         if let text = searchBar.text {
+            viewModel.resetData()
+            self.tableView.reloadData()
             Task {
                 await viewModel.searchForCandidate(text)
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
+                    self.loadingView.stopAnimating()
                 }
             }
         }

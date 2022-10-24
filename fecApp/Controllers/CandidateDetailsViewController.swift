@@ -10,11 +10,10 @@ import UIKit
 import SnapKit
 
 class CandidateDetailsViewController: UIViewController {
+    let candidateID: String
     
-    let candidate: Candidate
-    
-    init(candidate: Candidate) {
-        self.candidate = candidate
+    init(candidateID: String) {
+        self.candidateID = candidateID
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -25,39 +24,67 @@ class CandidateDetailsViewController: UIViewController {
     override func viewDidLoad() {
         view.backgroundColor = .white
         
+        view.addSubview(loadingView)
         view.addSubview(candidateName)
-        view.addSubview(state)
+        view.addSubview(address)
         view.addSubview(party)
         view.addSubview(office)
+        view.addSubview(electionYears)
         
         candidateName.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(16)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(8)
             make.leading.trailing.equalToSuperview().inset(16)
         }
         
         party.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(12)
-            make.top.equalTo(candidateName.snp.bottom).inset(-8)
+            make.top.equalTo(candidateName.snp.bottom).inset(-16)
         }
         
-        state.snp.makeConstraints { make in
-            make.leading.equalToSuperview().inset(12)
+        address.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(12)
             make.top.equalTo(party.snp.bottom).inset(-8)
         }
         
         office.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(12)
-            make.top.equalTo(state.snp.bottom).inset(-8)
+            make.top.equalTo(address.snp.bottom).inset(-8)
         }
         
-        candidateName.text = candidate.name
-        if let stateStr = candidate.state {
-            state.text = "State: \(stateDictionary[stateStr] ?? stateStr)"
+        electionYears.snp.makeConstraints { make in
+            make.top.equalTo(office.snp.bottom).inset(-8)
+            make.leading.equalToSuperview().inset(12)
         }
-        party.text = "Party: \(candidate.party ?? "")"
-        office.text = "Office: \(candidate.officeFull ?? "")"
         
+        loadingView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(16)
+            make.centerX.equalToSuperview()
+        }
+        
+        Task {
+            await viewModal.getCandidate(candidateID)
+            loadingView.stopAnimating()
+            if let candidateDetails = viewModal.candidate {
+                candidateName.text = candidateDetails.name
+                var addressText = "Address: " + (candidateDetails.addressStreet1 ?? "")
+                if let addressStreet2 = candidateDetails.addressStreet2 {
+                    addressText += " " + addressStreet2
+                }
+                if let city = candidateDetails.addressCity, let state = candidateDetails.addressZip {
+                    addressText += " \(city) \(state)"
+                }
+                address.text = addressText
+                
+                party.text = "Party: \(candidateDetails.partyFull ?? "")"
+                office.text = "Office: \(candidateDetails.officeFull ?? "")"
+                if let electionYearsArr = candidateDetails.electionYears {
+                    electionYears.text = "Election Years: " + electionYearsArr.map({ "\($0)" }).joined(separator: ", ")
+                }
+            }
+        }
     }
+    
+    let viewModal = CandidateDetailsViewModel()
     
     let candidateName: UILabel = {
         let label = UILabel()
@@ -68,9 +95,10 @@ class CandidateDetailsViewController: UIViewController {
         return label
     }()
     
-    let state: UILabel = {
+    let address: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 18)
+        label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -83,6 +111,29 @@ class CandidateDetailsViewController: UIViewController {
     }()
     
     let office: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 18)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let loadingView: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.hidesWhenStopped = true
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.startAnimating()
+        return indicator
+    }()
+    
+    let electionYears: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 18)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    
+    let comitees: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 18)
         label.translatesAutoresizingMaskIntoConstraints = false

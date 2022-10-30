@@ -109,7 +109,7 @@ struct CandidateDetails: Codable {
     let candidateInactive: Bool?
     let officeFull, addressState, addressStreet1, office: String?
     let lastFileDate: String?
-    let electionDistricts: [String]?
+    let electionDistricts: [String?]?
     let incumbentChallengeFull: String?
     let cycles: [Int]?
     let federalFundsFlag: Bool?

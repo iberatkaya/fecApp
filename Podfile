@@ -9,6 +9,7 @@ target 'fecApp' do
 
   pod 'SnapKit', '~> 5.6.0'
   pod 'Alamofire'
+  pod 'Charts'
 
   target 'fecAppTests' do
     inherit! :search_paths

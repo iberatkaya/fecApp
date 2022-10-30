@@ -8,45 +8,45 @@
 import Foundation
 
 struct CandidateFinancials: Codable {
-    let allLoansReceived, allOtherLoans, allocatedFederalElectionLevinShare, candidateContribution: Int
-    let cashOnHandBeginningPeriod: Int
-    let committeeDesignation, committeeDesignationFull, committeeID, committeeName: String
-    let committeeState, committeeType, committeeTypeFull: String
-    let contributionsIeAndPartyExpendituresMadePercent, conventionExp: Int
-    let coordinatedExpendituresByPartyCommittee: Int
-    let coverageEndDate, coverageStartDate: String
-    let cycle, exemptLegalAccountingDisbursement, expPriorYearsSubjectLimits: Int
-    let expSubjectLimits, fedCandidateCommitteeContributions, fedCandidateContributionRefunds, fedDisbursements: Int
-    let fedElectionActivity, fedOperatingExpenditures, fedReceipts, federalFunds: Int
-    let filingFrequency, filingFrequencyFull, firstF1Date, firstFileDate: String
-    let fundraisingDisbursements, independentExpenditures, individualContributionsPercent: Int
-    let individualItemizedContributions, individualUnitemizedContributions, itemizedConventionExp, itemizedOtherDisb: Int
-    let itemizedOtherIncome, itemizedOtherRefunds, itemizedRefundsRelatingConventionExp: Int
-    let lastBeginningImageNumber: String
-    let lastDebtsOwedToCommittee: Int
-    let lastReportTypeFull: String
-    let lastReportYear, loanRepayments, loanRepaymentsCandidateLoans, loanRepaymentsMade: Int
-    let loanRepaymentsOtherLoans, loanRepaymentsReceived, loans, loansAndLoanRepaymentsMade: Int
-    let loansAndLoanRepaymentsReceived, loansMade, loansMadeByCandidate, loansReceived: Int
-    let loansReceivedFromCandidate, nonAllocatedFedElectionActivity: Int
-    let offsetsToFundraisingExpenditures, offsetsToLegalAccounting: Int
-    let operatingExpendituresPercent: Int
-    let organizationType, organizationTypeFull: String
-    let otherDisbursements, otherFedOperatingExpenditures, otherFedReceipts, otherLoansReceived: Int
-    let otherRefunds, partyAndOtherCommitteeContributionsPercent: Int
-    let partyFull, pdfURL: String
-    let politicalPartyCommitteeContributions, refundedOtherPoliticalCommitteeContributions: Int
-    let refundedPoliticalPartyCommitteeContributions, refundsRelatingConventionExp, repaymentsLoansMadeByCandidate, repaymentsOtherLoans: Int
-    let reportForm: String
-    let sharedFedActivity, sharedFedActivityNonfed, sharedFedOperatingExpenditures, sharedNonfedOperatingExpenditures: Int
-    let totalExpSubjectLimits, totalIndependentContributions, totalIndependentExpenditures: Int
-    let totalTransfers: Int
-    let transactionCoverageDate: String
-    let transfersFromAffiliatedCommittee, transfersFromAffiliatedParty, transfersFromNonfedAccount, transfersFromNonfedLevin: Int
-    let transfersFromOtherAuthorizedCommittee, transfersToAffiliatedCommittee, transfersToOtherAuthorizedCommittee: Int
-    let treasurerName: String
-    let unitemizedConventionExp, unitemizedOtherDisb, unitemizedOtherIncome, unitemizedOtherRefunds: Int
-    let unitemizedRefundsRelatingConventionExp: Int
+    let allLoansReceived, allOtherLoans, allocatedFederalElectionLevinShare, candidateContribution: Double?
+    let cashOnHandBeginningPeriod: Double?
+    let committeeDesignation, committeeDesignationFull, committeeID, committeeName: String?
+    let committeeState, committeeType, committeeTypeFull: String?
+    let contributionsIeAndPartyExpendituresMadePercent, conventionExp: Double?
+    let coordinatedExpendituresByPartyCommittee: Double?
+    let coverageEndDate, coverageStartDate: String?
+    let cycle, exemptLegalAccountingDisbursement, expPriorYearsSubjectLimits: Double?
+    let expSubjectLimits, fedCandidateCommitteeContributions, fedCandidateContributionRefunds, fedDisbursements: Double?
+    let fedElectionActivity, fedOperatingExpenditures, fedReceipts, federalFunds: Double?
+    let filingFrequency, filingFrequencyFull, firstF1Date, firstFileDate: String?
+    let fundraisingDisbursements, independentExpenditures, individualContributionsPercent: Double?
+    let individualItemizedContributions, individualUnitemizedContributions, itemizedConventionExp, itemizedOtherDisb: Double?
+    let itemizedOtherIncome, itemizedOtherRefunds, itemizedRefundsRelatingConventionExp: Double?
+    let lastBeginningImageNumber: String?
+    let lastDebtsOwedToCommittee: Double?
+    let lastReportTypeFull: String?
+    let lastReportYear, loanRepayments, loanRepaymentsCandidateLoans, loanRepaymentsMade: Double?
+    let loanRepaymentsOtherLoans, loanRepaymentsReceived, loans, loansAndLoanRepaymentsMade: Double?
+    let loansAndLoanRepaymentsReceived, loansMade, loansMadeByCandidate, loansReceived: Double?
+    let loansReceivedFromCandidate, nonAllocatedFedElectionActivity: Double?
+    let offsetsToFundraisingExpenditures, offsetsToLegalAccounting: Double?
+    let operatingExpendituresPercent: Double?
+    let organizationType, organizationTypeFull: String?
+    let otherDisbursements, otherFedOperatingExpenditures, otherFedReceipts, otherLoansReceived: Double?
+    let otherRefunds, partyAndOtherCommitteeContributionsPercent: Double?
+    let partyFull, pdfURL: String?
+    let politicalPartyCommitteeContributions, refundedOtherPoliticalCommitteeContributions: Double?
+    let refundedPoliticalPartyCommitteeContributions, refundsRelatingConventionExp, repaymentsLoansMadeByCandidate, repaymentsOtherLoans: Double?
+    let reportForm: String?
+    let sharedFedActivity, sharedFedActivityNonfed, sharedFedOperatingExpenditures, sharedNonfedOperatingExpenditures: Double?
+    let totalExpSubjectLimits, totalIndependentContributions, totalIndependentExpenditures: Double?
+    let totalTransfers: Double?
+    let transactionCoverageDate: String?
+    let transfersFromAffiliatedCommittee, transfersFromAffiliatedParty, transfersFromNonfedAccount, transfersFromNonfedLevin: Double?
+    let transfersFromOtherAuthorizedCommittee, transfersToAffiliatedCommittee, transfersToOtherAuthorizedCommittee: Double?
+    let treasurerName: String?
+    let unitemizedConventionExp, unitemizedOtherDisb, unitemizedOtherIncome, unitemizedOtherRefunds: Double?
+    let unitemizedRefundsRelatingConventionExp: Double?
     let otherPoliticalCommitteeContributions: Double?
     let contributionRefunds, refundedIndividualContributions: Double?
     let lastCashOnHandEndPeriod, netContributions, disbursements: Double?

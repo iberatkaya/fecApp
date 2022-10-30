@@ -31,7 +31,6 @@ class SearchCandidateViewController: UIViewController, UISearchBarDelegate, UITa
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -1,8 +1,7 @@
-// Taken from https://stackoverflow.com/a/39952402
-
 import Foundation
 
 extension Int {
+    // Taken from https://stackoverflow.com/a/39952402
     var abbreviated: String {
         let abbrev = "KMBTPE"
         return abbrev.enumerated().reversed().reduce(nil as String?) { accum, tuple in

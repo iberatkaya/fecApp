@@ -1,25 +1,28 @@
 //
-//  CandidateDetailsViewController.swift
+//  DonationsDetailsViewController.swift
 //  fecApp
 //
-//  Created by Ibrahim Berat Kaya on 10/17/22.
+//  Created by Ibrahim Berat Kaya on 10/30/22.
 //
 
 
 import UIKit
 import SnapKit
 
-class CandidateDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    let candidateID: String
+class StateDonationsDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    let donations: [CandidateDonationsByState]
     
-    init(candidateID: String) {
-        self.candidateID = candidateID
+    init(candidate: CandidateDetails, donations: [CandidateDonationsByState]) {
+        self.donations = donations
+        self.viewModel = DonationsByStateViewModel(candidate: candidate, donationsByState: donations)
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    let viewModel: DonationsByStateViewModel
     
     override func viewDidLoad() {
         view.backgroundColor = .white
@@ -29,9 +32,9 @@ class CandidateDetailsViewController: UIViewController, UITableViewDelegate, UIT
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 260
+        tableView.rowHeight = 72
         
-        tableView.register(CandidateDonationsByStateCellView.self, forCellReuseIdentifier: "CandidateDonationsByStateCellView")
+        tableView.register(DonationsByStateCellView.self, forCellReuseIdentifier: "DonationsByStateCellView")
         
         tableView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(8)
@@ -44,54 +47,35 @@ class CandidateDetailsViewController: UIViewController, UITableViewDelegate, UIT
             make.centerX.equalToSuperview()
         }
         
-        Task {
-            await viewModel.getCandidate(candidateID)
-            self.loadingView.stopAnimating()
-            self.tableView.reloadData()
-            print("RELOAD TABLE")
-        }
+        self.tableView.reloadData()
     }
         
-    let tableViewHeaderHeight = 200.0
+    let tableViewHeaderHeight = 80.0
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return tableViewHeaderHeight
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if let candidate = viewModel.candidate {
-            let header = CandidateDetailsTableHeader(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: tableViewHeaderHeight), candidate: candidate)
-            return header
-        }
-        
-        return nil
+        let header = StateDonationsDetailsTableHeader(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: tableViewHeaderHeight), candidate: viewModel.candidate, donations: viewModel.donationsByState)
+        return header
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.getValidDonationYears().count
+        return viewModel.donationsByState.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CandidateDonationsByStateCellView", for: indexPath) as! CandidateDonationsByStateCellView
-        let cycle = viewModel.getValidDonationYears()[indexPath.row]
-        cell.donations = viewModel.getCandidateDonationsByYear(year: cycle)
-        cell.preservesSuperviewLayoutMargins = false
-        cell.separatorInset = UIEdgeInsets.zero
-        cell.layoutMargins = UIEdgeInsets.zero
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DonationsByStateCellView", for: indexPath) as! DonationsByStateCellView
+        cell.donation = viewModel.donationsByState[indexPath.row]
+        cell.selectionStyle = .none
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if let candidate = viewModel.candidate {
-            print("selected and has candidate")
-            let year = viewModel.getValidDonationYears()[indexPath.row]
-            let donations = viewModel.getCandidateDonationsByYear(year: year)
-            self.navigationController?.pushViewController(StateDonationsDetailsViewController(candidate: candidate, donations: donations), animated: true)
-        }
     }
     
-    let viewModel = CandidateDetailsViewModel()
     
     let tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)

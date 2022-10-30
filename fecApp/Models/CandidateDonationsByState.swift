@@ -1,4 +1,4 @@
-struct CandidateDontaionsByState: Codable {
+struct CandidateDonationsByState: Codable {
     let state: String?
     let total: Double?
     let count: Int?

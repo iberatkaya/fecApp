@@ -3,10 +3,27 @@ import SnapKit
 import Charts
 
 class CandidateDonationsByStateCellView: UITableViewCell {
-    var donations: [CandidateDontaionsByState]? {
+    var donations: [CandidateDonationsByState]? {
         didSet {
-            loadView()
+            setContent()
         }
+    }
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        loadView()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setContent() {
+        if let yearInt = donations?.first?.cycle {
+            year.text = "\(yearInt)"
+        }
+        
+        setChartData()
     }
     
     func loadView() {
@@ -24,12 +41,6 @@ class CandidateDonationsByStateCellView: UITableViewCell {
             make.bottom.equalToSuperview().inset(8)
             make.trailing.equalTo(year.snp.leading)
         }
-        
-        if let yearInt = donations?.first?.cycle {
-            year.text = "\(yearInt)"
-        }
-        
-        setChartData()
     }
     
     let year: UILabel = {
@@ -50,8 +61,8 @@ class CandidateDonationsByStateCellView: UITableViewCell {
 
     func setChartData() {
         var entries = [PieChartDataEntry]()
-        var remainingEntries: [CandidateDontaionsByState] = []
-        let amountDisplayed = 5
+        var remainingEntries: [CandidateDonationsByState] = []
+        let amountDisplayed = 4
         if let donations {
             for i in 0..<amountDisplayed {
                 if i < donations.count {
@@ -62,8 +73,7 @@ class CandidateDonationsByStateCellView: UITableViewCell {
                 }
             }
 
-            if donations.count > (amountDisplayed - 1)
-            {
+            if donations.count > (amountDisplayed - 1) {
                 for i in amountDisplayed..<donations.count {
                     if i < donations.count {
                         remainingEntries.append(donations[i])
@@ -82,7 +92,7 @@ class CandidateDonationsByStateCellView: UITableViewCell {
             let set = PieChartDataSet(entries: entries)
             set.label = ""
             set.valueTextColor = .black
-            set.valueFont = .boldSystemFont(ofSize: 14)
+            set.valueFont = .boldSystemFont(ofSize: 13)
             set.valueFormatter = CustomPieValueFormatter()
             set.colors = [.orange, .green, .systemPink, .brown, .cyan, .magenta, .purple, .yellow]
             set.yValuePosition = .outsideSlice

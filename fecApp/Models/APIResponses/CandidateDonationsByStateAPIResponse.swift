@@ -1,10 +1,10 @@
 import Foundation
 
 // MARK: - Welcome
-struct CandidateDontaionsByStateAPIResponse: Codable {
+struct CandidateDonationsByStateAPIResponse: Codable {
     let apiVersion: String?
-    let pagination: CandidateDontaionsByStateAPIResponsePagination?
-    let results: [CandidateDontaionsByState]?
+    let pagination: CandidateDonationsByStateAPIResponsePagination?
+    let results: [CandidateDonationsByState]?
 
     enum CodingKeys: String, CodingKey {
         case apiVersion = "api_version"
@@ -13,7 +13,7 @@ struct CandidateDontaionsByStateAPIResponse: Codable {
 }
 
 // MARK: - Pagination
-struct CandidateDontaionsByStateAPIResponsePagination: Codable {
+struct CandidateDonationsByStateAPIResponsePagination: Codable {
     let page, perPage, count, pages: Int?
 
     enum CodingKeys: String, CodingKey {

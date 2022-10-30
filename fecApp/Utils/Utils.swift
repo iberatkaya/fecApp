@@ -29,3 +29,14 @@ public class CustomPieValueFormatter: NSObject, ValueFormatter {
         return val
     }
 }
+
+func getValidDonationYears(donationsByState: [CandidateDonationsByState]) -> [Int] {
+    var dates: [Int] = []
+    for d in donationsByState {
+        if let cycle = d.cycle, !dates.contains(cycle) {
+            dates.append(cycle)
+        }
+    }
+    
+    return dates.sorted { $0 > $1 }
+}

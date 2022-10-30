@@ -53,7 +53,7 @@ class CandidateDetailsTableHeader: UIView {
         
         electionYears.snp.makeConstraints { make in
             make.top.equalTo(office.snp.bottom).inset(-8)
-            make.leading.equalToSuperview().inset(12)
+            make.leading.trailing.equalToSuperview().inset(12)
         }
         
         candidateName.text = candidate.name
@@ -107,13 +107,6 @@ class CandidateDetailsTableHeader: UIView {
     let electionYears: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.font = UIFont.systemFont(ofSize: 18)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    let comitees: UILabel = {
-        let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 18)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

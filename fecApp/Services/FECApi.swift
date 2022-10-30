@@ -85,7 +85,7 @@ class FECApi: RequestAdapter, RequestInterceptor {
     }
     
     
-    func getDonationsByState(candidateID: String, cycles: [Int]) async -> Result<[CandidateDontaionsByState], APIError> {
+    func getDonationsByState(candidateID: String, cycles: [Int]) async -> Result<[CandidateDonationsByState], APIError> {
         var url = URL(string: baseUrlStr + "schedules/schedule_a/by_state/by_candidate/")!
         url.append(queryItems: [URLQueryItem(name: "per_page", value: "\(cycles.count * 64)"), URLQueryItem(name: "candidate_id", value: candidateID), URLQueryItem(name: "sort", value: "-total")] + cycles.map({ URLQueryItem(name: "cycle", value: "\($0)") }))
         let task = AF.request(url, interceptor: self).cacheResponse(using: .cache).serializingData()
@@ -95,7 +95,7 @@ class FECApi: RequestAdapter, RequestInterceptor {
         }
         if let data = res.data {
             do {
-                let apiData = try JSONDecoder().decode(CandidateDontaionsByStateAPIResponse.self, from: data)
+                let apiData = try JSONDecoder().decode(CandidateDonationsByStateAPIResponse.self, from: data)
                 if let results = apiData.results, results.count > 0 {
                     return .success(results)
                 }

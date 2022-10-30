@@ -4,8 +4,26 @@ import SnapKit
 class CandidateSearchCellView: UITableViewCell {
     var candidate: Candidate? {
         didSet {
-            loadView()
+            setContent()
         }
+    }
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        loadView()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setContent() {
+        candidateName.text = candidate?.name
+        if let stateStr = candidate?.state {
+            state.text = stateDictionary[stateStr] ?? stateStr
+        }
+        party.text = candidate?.party
+        office.text = candidate?.officeFull
     }
     
     func loadView() {
@@ -21,31 +39,25 @@ class CandidateSearchCellView: UITableViewCell {
         
         party.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(12)
-            make.top.bottom.equalToSuperview()
+            make.top.equalTo(candidateName.snp.bottom).inset(-12)
         }
         
         state.snp.makeConstraints { make in
+            make.top.equalTo(party.snp.bottom).inset(-8)
             make.leading.equalToSuperview().inset(12)
-            make.bottom.equalToSuperview().inset(8)
         }
         
         office.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview()
+            make.top.equalTo(candidateName.snp.bottom).inset(-12)
             make.trailing.equalToSuperview().inset(12)
         }
         
-        candidateName.text = candidate?.name
-        if let stateStr = candidate?.state {
-            state.text = stateDictionary[stateStr] ?? stateStr
-        }
-        party.text = candidate?.party
-        office.text = candidate?.officeFull
     }
     
     let candidateName: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 18)
-        label.numberOfLines = 0
+        label.numberOfLines = 1
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

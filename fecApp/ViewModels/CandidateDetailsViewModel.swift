@@ -1,37 +1,27 @@
 class CandidateDetailsViewModel {
     var candidate: CandidateDetails?
-    var financials: [CandidateFinancials]?
-    var donationsByState: [CandidateDontaionsByState]?
+    var donationsByState: [CandidateDonationsByState]?
     var candidateFetchingStatus = APIFetchingStatus.idle
-    var financialFetchingStatus = APIFetchingStatus.idle
     var donationsByStateStatus = APIFetchingStatus.idle
     
     private let apiService = FECApi()
     
     func getCandidate(_ id: String) async {
         candidateFetchingStatus = .loading
-        financialFetchingStatus = .loading
         async let candidateRes = apiService.getCandidate(id)
-        async let financialsRes = apiService.getCandidateFinancials(id)
         
-        let res = await (candidateRes, financialsRes)
+        let res = await candidateRes
         
-        switch res.0 {
+        switch res {
         case .success(let c):
             candidate = c
             candidateFetchingStatus = .success
         case .failure(_):
             candidateFetchingStatus = .failed
         }
-        switch res.1 {
-        case .success(let c):
-            financials = c
-            financialFetchingStatus = .success
-        case .failure(_):
-            financialFetchingStatus = .failed
-        }
         
         if let electionYears = candidate?.electionYears {
+            donationsByStateStatus = .loading
             let donationsByStateRes = await apiService.getDonationsByState(candidateID: id, cycles: electionYears)
             switch donationsByStateRes {
             case .success(let c):
@@ -45,20 +35,13 @@ class CandidateDetailsViewModel {
         }
     }
     
-    func getCandidateDonationsByYear(year: Int) -> [CandidateDontaionsByState] {
+    func getCandidateDonationsByYear(year: Int) -> [CandidateDonationsByState] {
         return donationsByState?.filter({ donation in
             return donation.cycle == year
         }) ?? []
     }
     
     func getValidDonationYears() -> [Int] {
-        var dates: [Int] = []
-        for d in (donationsByState ?? []) {
-            if let cycle = d.cycle, !dates.contains(cycle) {
-                dates.append(cycle)
-            }
-        }
-        
-        return dates.sorted { $0 > $1 }
+        return fecApp.getValidDonationYears(donationsByState: donationsByState ?? [])
     }
 }

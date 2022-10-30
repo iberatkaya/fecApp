@@ -106,6 +106,7 @@ class CandidateDetailsTableHeader: UIView {
     
     let electionYears: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 18)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

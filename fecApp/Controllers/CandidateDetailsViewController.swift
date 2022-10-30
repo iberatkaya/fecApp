@@ -29,7 +29,7 @@ class CandidateDetailsViewController: UIViewController, UITableViewDelegate, UIT
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 200
+        tableView.rowHeight = 260
         
         tableView.register(CandidateDonationsByStateCellView.self, forCellReuseIdentifier: "CandidateDonationsByStateCellView")
         

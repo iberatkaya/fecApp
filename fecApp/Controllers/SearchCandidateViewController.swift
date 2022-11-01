@@ -57,7 +57,8 @@ class SearchCandidateViewController: UIViewController, UISearchBarDelegate, UITa
         
         tableView.snp.makeConstraints { make in
             make.top.equalTo(searchbar.snp.bottom)
-            make.bottom.leading.trailing.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(-8)
         }
         
         loadingView.snp.makeConstraints { make in

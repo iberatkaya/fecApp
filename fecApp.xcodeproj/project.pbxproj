@@ -28,6 +28,7 @@
 		F403D09928FE563A00EE1C71 /* CandidateDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F403D09828FE563A00EE1C71 /* CandidateDetailsViewController.swift */; };
 		F403D09B28FE566400EE1C71 /* CandidateDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F403D09A28FE566400EE1C71 /* CandidateDetailsViewModel.swift */; };
 		F403D09E2902264A00EE1C71 /* Candidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F403D09D2902264A00EE1C71 /* Candidate.swift */; };
+		F41E280B2911E1A100AB0670 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E280A2911E1A100AB0670 /* UITableView.swift */; };
 		F430C4CA2909F97900DD8493 /* CandidateDetailsTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430C4C92909F97900DD8493 /* CandidateDetailsTableHeader.swift */; };
 		F430C4CC290D6D4E00DD8493 /* CandidateDonationsByStateCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430C4CB290D6D4E00DD8493 /* CandidateDonationsByStateCellView.swift */; };
 		F430C4CE290D7E8100DD8493 /* CandidateDonationsByStateAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430C4CD290D7E8100DD8493 /* CandidateDonationsByStateAPIResponse.swift */; };
@@ -93,6 +94,7 @@
 		F403D09828FE563A00EE1C71 /* CandidateDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateDetailsViewController.swift; sourceTree = "<group>"; };
 		F403D09A28FE566400EE1C71 /* CandidateDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateDetailsViewModel.swift; sourceTree = "<group>"; };
 		F403D09D2902264A00EE1C71 /* Candidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Candidate.swift; sourceTree = "<group>"; };
+		F41E280A2911E1A100AB0670 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		F430C4C92909F97900DD8493 /* CandidateDetailsTableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateDetailsTableHeader.swift; sourceTree = "<group>"; };
 		F430C4CB290D6D4E00DD8493 /* CandidateDonationsByStateCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateDonationsByStateCellView.swift; sourceTree = "<group>"; };
 		F430C4CD290D7E8100DD8493 /* CandidateDonationsByStateAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateDonationsByStateAPIResponse.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 			children = (
 				F430C4D1290E223800DD8493 /* Int.swift */,
 				F430C4D9290F023300DD8493 /* String.swift */,
+				F41E280A2911E1A100AB0670 /* UITableView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -550,6 +553,7 @@
 				F430C4D0290D7EC300DD8493 /* CandidateDonationsByState.swift in Sources */,
 				F430C4D2290E223800DD8493 /* Int.swift in Sources */,
 				F403D05328FB7DCF00EE1C71 /* SearchCandidateViewController.swift in Sources */,
+				F41E280B2911E1A100AB0670 /* UITableView.swift in Sources */,
 				F403D04F28FB7DCF00EE1C71 /* AppDelegate.swift in Sources */,
 				F403D09328FCD42600EE1C71 /* CandidateSearchCellView.swift in Sources */,
 				F430C4D6290ED23400DD8493 /* DonationsByStateCellView.swift in Sources */,

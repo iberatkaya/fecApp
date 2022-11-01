@@ -31,11 +31,11 @@ class DonationsByStateCellView: UITableViewCell {
         addSubview(amount)
         
         state.snp.makeConstraints { make in
-            make.leading.equalToSuperview().inset(8)
+            make.leading.equalToSuperview().inset(16)
             make.top.equalToSuperview().inset(8)
         }
         amount.snp.makeConstraints { make in
-            make.leading.equalToSuperview().inset(8)
+            make.leading.equalToSuperview().inset(16)
             make.bottom.equalToSuperview()
             make.top.equalTo(state.snp.bottom)
         }

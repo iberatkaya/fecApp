@@ -31,12 +31,12 @@ class CandidateDonationsByStateCellView: UITableViewCell {
         addSubview(pieChart)
         
         year.snp.makeConstraints { make in
-            make.trailing.equalToSuperview().inset(8)
+            make.trailing.equalToSuperview().inset(24)
             make.top.equalToSuperview().inset(8)
         }
         
         pieChart.snp.makeConstraints { make in
-            make.leading.equalToSuperview().inset(8)
+            make.leading.equalToSuperview().inset(16)
             make.top.equalToSuperview().inset(8)
             make.bottom.equalToSuperview().inset(8)
             make.trailing.equalTo(year.snp.leading)

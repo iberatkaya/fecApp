@@ -24,8 +24,8 @@ class CandidateDetailsViewController: UIViewController, UITableViewDelegate, UIT
     override func viewDidLoad() {
         view.backgroundColor = .white
         
-        view.addSubview(loadingView)
         view.addSubview(tableView)
+        view.addSubview(loadingView)
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -36,19 +36,28 @@ class CandidateDetailsViewController: UIViewController, UITableViewDelegate, UIT
         tableView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(8)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(-8)
-            make.leading.trailing.equalToSuperview().inset(16)
+            make.leading.trailing.equalToSuperview()
         }
         
         loadingView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(16)
             make.centerX.equalToSuperview()
+            make.height.equalTo(80)
         }
         
         Task {
             await viewModel.getCandidate(candidateID)
             self.loadingView.stopAnimating()
             self.tableView.reloadData()
-            print("RELOAD TABLE")
+            if let donationsByState = viewModel.donationsByState, donationsByState.isEmpty {
+                tableView.alwaysBounceVertical = false
+                self.tableView.setEmptyMessage("No data found")
+            } else if viewModel.donationsByState == nil {
+                tableView.alwaysBounceVertical = false
+                self.tableView.setEmptyMessage("No data found")
+            } else {
+                tableView.alwaysBounceVertical = true
+            }
         }
     }
         
@@ -84,7 +93,6 @@ class CandidateDetailsViewController: UIViewController, UITableViewDelegate, UIT
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if let candidate = viewModel.candidate {
-            print("selected and has candidate")
             let year = viewModel.getValidDonationYears()[indexPath.row]
             let donations = viewModel.getCandidateDonationsByYear(year: year)
             self.navigationController?.pushViewController(StateDonationsDetailsViewController(candidate: candidate, donations: donations), animated: true)

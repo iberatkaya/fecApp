@@ -27,7 +27,6 @@ class StateDonationsDetailsViewController: UIViewController, UITableViewDelegate
     override func viewDidLoad() {
         view.backgroundColor = .white
         
-        view.addSubview(loadingView)
         view.addSubview(tableView)
         
         tableView.delegate = self
@@ -39,12 +38,7 @@ class StateDonationsDetailsViewController: UIViewController, UITableViewDelegate
         tableView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(8)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(-8)
-            make.leading.trailing.equalToSuperview().inset(16)
-        }
-        
-        loadingView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(16)
-            make.centerX.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
         }
         
         self.tableView.reloadData()
@@ -69,6 +63,9 @@ class StateDonationsDetailsViewController: UIViewController, UITableViewDelegate
         let cell = tableView.dequeueReusableCell(withIdentifier: "DonationsByStateCellView", for: indexPath) as! DonationsByStateCellView
         cell.donation = viewModel.donationsByState[indexPath.row]
         cell.selectionStyle = .none
+        cell.preservesSuperviewLayoutMargins = false
+        cell.separatorInset = .zero
+        cell.layoutMargins = .zero
         return cell
     }
     
@@ -82,13 +79,5 @@ class StateDonationsDetailsViewController: UIViewController, UITableViewDelegate
         table.backgroundColor = .white
         table.translatesAutoresizingMaskIntoConstraints = false
         return table
-    }()
-    
-    let loadingView: UIActivityIndicatorView = {
-        let indicator = UIActivityIndicatorView(style: .large)
-        indicator.hidesWhenStopped = true
-        indicator.translatesAutoresizingMaskIntoConstraints = false
-        indicator.startAnimating()
-        return indicator
     }()
 }

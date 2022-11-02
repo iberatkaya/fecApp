@@ -44,7 +44,7 @@ class StateDonationsDetailsViewController: UIViewController, UITableViewDelegate
         self.tableView.reloadData()
     }
         
-    let tableViewHeaderHeight = 80.0
+    let tableViewHeaderHeight = 120.0
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return tableViewHeaderHeight

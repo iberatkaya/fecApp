@@ -97,7 +97,6 @@ class CandidateDonationsByStateCellView: UITableViewCell {
             set.colors = [.orange, .green, .systemPink, .brown, .cyan, .magenta, .purple, .yellow]
             set.yValuePosition = .outsideSlice
             pieChart.data = PieChartData(dataSet: set)
-            print(set)
             pieChart.notifyDataSetChanged()
         }
     }

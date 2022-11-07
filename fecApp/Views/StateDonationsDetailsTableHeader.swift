@@ -8,9 +8,32 @@
 import UIKit
 import SnapKit
 
-class StateDonationsDetailsTableHeader: UIView {
+class StateDonationsDetailsTableHeader: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return filings?.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CandidateFilingCellView", for: indexPath) as! CandidateFilingCellView
+        cell.filing = filings?[indexPath.row]
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 140, height: 140)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        if let filings = filings?[indexPath.row], let url = filings.htmlURL {
+            delegate?.pressedCell(url: url)
+        }
+    }
+    
     let candidate: CandidateDetails
     let donations: [CandidateDonationsByState]
+    var filings: [CandidateFiling]?
+    weak var delegate: StateDonationsDetailsTableHeaderDelegate?
     
     required init(frame: CGRect, candidate: CandidateDetails, donations: [CandidateDonationsByState]) {
         self.candidate = candidate
@@ -23,12 +46,18 @@ class StateDonationsDetailsTableHeader: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+
     func setupView() {
         backgroundColor = .white
         
         addSubview(candidateName)
         addSubview(electionYear)
         addSubview(totalDonations)
+        addSubview(collectionView)
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(CandidateFilingCellView.self, forCellWithReuseIdentifier: "CandidateFilingCellView")
         
         candidateName.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide.snp.top)
@@ -43,6 +72,12 @@ class StateDonationsDetailsTableHeader: UIView {
         totalDonations.snp.makeConstraints { make in
             make.top.equalTo(electionYear.snp.bottom).inset(-16)
             make.leading.equalToSuperview().inset(12)
+        }
+        
+        collectionView.snp.makeConstraints { make in
+            make.top.equalTo(totalDonations.snp.bottom).inset(-16)
+            make.leading.trailing.equalToSuperview().inset(8)
+            make.bottom.equalToSuperview()
         }
         
         candidateName.text = candidate.name
@@ -77,4 +112,19 @@ class StateDonationsDetailsTableHeader: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
+    let collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        let collection = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        collection.alwaysBounceHorizontal = true
+        collection.isPagingEnabled = true
+        collection.backgroundColor = .white
+        collection.translatesAutoresizingMaskIntoConstraints = false
+        return collection
+    }()
+}
+
+protocol StateDonationsDetailsTableHeaderDelegate: AnyObject {
+    func pressedCell(url: String)
 }

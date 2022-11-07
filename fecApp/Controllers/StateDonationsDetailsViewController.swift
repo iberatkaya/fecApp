@@ -9,7 +9,8 @@
 import UIKit
 import SnapKit
 
-class StateDonationsDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class StateDonationsDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, StateDonationsDetailsTableHeaderDelegate {
+    
     let donations: [CandidateDonationsByState]
     
     init(candidate: CandidateDetails, donations: [CandidateDonationsByState]) {
@@ -33,6 +34,7 @@ class StateDonationsDetailsViewController: UIViewController, UITableViewDelegate
         tableView.dataSource = self
         tableView.rowHeight = 72
         
+        
         tableView.register(DonationsByStateCellView.self, forCellReuseIdentifier: "DonationsByStateCellView")
         
         tableView.snp.makeConstraints { make in
@@ -42,9 +44,15 @@ class StateDonationsDetailsViewController: UIViewController, UITableViewDelegate
         }
         
         self.tableView.reloadData()
+        
+        Task {
+            await viewModel.fetchCandidateFilings()
+            
+            self.tableView.reloadData()
+        }
     }
         
-    let tableViewHeaderHeight = 120.0
+    let tableViewHeaderHeight = 280.0
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return tableViewHeaderHeight
@@ -52,7 +60,13 @@ class StateDonationsDetailsViewController: UIViewController, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = StateDonationsDetailsTableHeader(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: tableViewHeaderHeight), candidate: viewModel.candidate, donations: viewModel.donationsByState)
+        header.delegate = self
+        header.filings = viewModel.filings
         return header
+    }
+    
+    func pressedCell(url: String) {
+        self.navigationController?.pushViewController(WebViewController(url: url), animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

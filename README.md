@@ -17,10 +17,10 @@ FEC App is an iOS app built with Swift and UIKit. It uses [FEC's API](https://ap
 ## Screenshots
 
 <p align="center">
-    <img alt="Screenshot" src="https://raw.githubusercontent.com/iberatkaya/fecApp/main/screenshots/1.png" width="160" >
-        <img alt="Screenshot" src="https://raw.githubusercontent.com/iberatkaya/fecApp/main/screenshots/2.png" width="160" >
-    <img alt="Screenshot" src="https://raw.githubusercontent.com/iberatkaya/fecApp/main/screenshots/3.png" width="160" >
-    <img alt="Screenshot" src="https://raw.githubusercontent.com/iberatkaya/fecApp/main/screenshots/4.png" width="160" >
+    <img alt="Screenshot" src="https://raw.githubusercontent.com/iberatkaya/fecApp/main/screenshots/1.png" width="220" >
+        <img alt="Screenshot" src="https://raw.githubusercontent.com/iberatkaya/fecApp/main/screenshots/2.png" width="220" >
+    <img alt="Screenshot" src="https://raw.githubusercontent.com/iberatkaya/fecApp/main/screenshots/3.png" width="220" >
+    <img alt="Screenshot" src="https://raw.githubusercontent.com/iberatkaya/fecApp/main/screenshots/4.png" width="220" >
 </p>
 
 ## Contributing

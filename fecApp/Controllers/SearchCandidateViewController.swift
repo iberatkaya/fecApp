@@ -43,6 +43,7 @@ class SearchCandidateViewController: UIViewController, UISearchBarDelegate, UITa
         view.addSubview(searchbar)
         view.addSubview(tableView)
         view.addSubview(loadingView)
+        view.addSubview(noResultsLabel)
         
         tableView.register(CandidateSearchCellView.self, forCellReuseIdentifier: "CandidateSearchCellView")
 
@@ -66,12 +67,9 @@ class SearchCandidateViewController: UIViewController, UISearchBarDelegate, UITa
             make.centerX.equalToSuperview()
         }
         
-        Task {
-            await viewModel.searchForCandidate("Bernie")
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-                self.loadingView.stopAnimating()
-            }
+        noResultsLabel.snp.makeConstraints { make in
+            make.top.equalTo(searchbar.snp.bottom).inset(-20)
+            make.centerX.equalToSuperview()
         }
     }
     
@@ -94,8 +92,15 @@ class SearchCandidateViewController: UIViewController, UISearchBarDelegate, UITa
         let indicator = UIActivityIndicatorView(style: .large)
         indicator.hidesWhenStopped = true
         indicator.translatesAutoresizingMaskIntoConstraints = false
-        indicator.startAnimating()
         return indicator
+    }()
+    
+    let noResultsLabel: UILabel = {
+        let text = UILabel()
+        text.text = "No results found!"
+        text.font = .systemFont(ofSize: 20, weight: .bold)
+        text.translatesAutoresizingMaskIntoConstraints = false
+        return text
     }()
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -109,6 +114,7 @@ class SearchCandidateViewController: UIViewController, UISearchBarDelegate, UITa
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                     self.loadingView.stopAnimating()
+                    self.noResultsLabel.isHidden = !self.viewModel.candidates.isEmpty
                 }
             }
         }

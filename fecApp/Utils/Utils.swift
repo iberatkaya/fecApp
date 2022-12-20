@@ -26,7 +26,7 @@ func formatDate(_ date: String) -> String? {
 public class CustomPieValueFormatter: NSObject, ValueFormatter {
     public func stringForValue(_ value: Double, entry: ChartDataEntry, dataSetIndex: Int, viewPortHandler: ViewPortHandler?) -> String {
         let val = Int(value).abbreviated
-        return val
+        return "$\(val)"
     }
 }
 
